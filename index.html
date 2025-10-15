@@ -1,0 +1,24 @@
+<powershell>
+# Install IIS Web Server
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+
+# Create the HTML file
+$html = @"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Web Server 1</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Web Server 2</h1>
+    </div>
+</body>
+</html>
+"@
+
+# Save it to IIS default directory
+Set-Content -Path "C:\inetpub\wwwroot\index.html" -Value $html -Force
+</powershell>
